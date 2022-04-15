@@ -2,11 +2,6 @@ package com.example.sorting;
 
 public class SortingUtility {
 
-    /**
-     * Sorts the specified array of integers using the selection sort algorithm.
-     *
-     * @param data the array to be sorted
-     */
     public static <T extends Comparable<T>> void selectionSort(T[] data) {
 
         int min;
@@ -38,11 +33,6 @@ public class SortingUtility {
 
     }
 
-    /**
-     * Sorts the specified array of objects using an insertion sort algorithm.
-     *
-     * @param data the array to be sorted
-     */
     public static <T extends Comparable<T>> void insertionSort(T[] data) {
 
         for (int index = 1; index < data.length; index++) {
@@ -61,11 +51,6 @@ public class SortingUtility {
         }
     }
 
-    /**
-     * Sorts the specified array of objects using a bubble sort algorithm.
-     *
-     * @param data the array to be sorted
-     */
     public static <T extends Comparable<T>> void bubbleSort(T[] data) {
 
         int position, scan;
@@ -79,11 +64,6 @@ public class SortingUtility {
         }
     }
 
-    /**
-     * Sorts the specified array of objects using the quick sort algorithm.
-     *
-     * @param data the array to be sorted
-     */
     public static <T extends Comparable<T>> void quickSort(T[] data) {
         quickSort(data, 0, data.length - 1);
     }
@@ -106,12 +86,12 @@ public class SortingUtility {
 
     private static <T extends Comparable<T>> int partition(T[] data, int min, int max) {
 
-        T partitionelement;
+        T partitionElement;
         int left, right;
         int middle = (min + max) / 2;
 
         // use the middle data value as the partition element
-        partitionelement = data[middle];
+        partitionElement = data[middle];
 
         // move it out of the way for now
         swap(data, middle, min);
@@ -122,10 +102,10 @@ public class SortingUtility {
         while (left < right) {
 
             // search for an element that is > the partition element
-            while (left < right && data[left].compareTo(partitionelement) <= 0) left++;
+            while (left < right && data[left].compareTo(partitionElement) <= 0) left++;
 
             // search for an element that is < the partition element
-            while (data[right].compareTo(partitionelement) > 0) right--;
+            while (data[right].compareTo(partitionElement) > 0) right--;
 
             // swap the elements
             if (left < right) swap(data, left, right);
@@ -138,11 +118,6 @@ public class SortingUtility {
         return right;
     }
 
-    /**
-     * Sorts the specified array of objects using the merge sort algorithm.
-     *
-     * @param data the array to be sorted
-     */
     public static <T extends Comparable<T>> void mergeSort(T[] data) {
         mergeSort(data, 0, data.length - 1);
     }
